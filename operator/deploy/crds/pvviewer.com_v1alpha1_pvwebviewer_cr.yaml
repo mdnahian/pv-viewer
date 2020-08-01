@@ -1,0 +1,7 @@
+apiVersion: pvviewer.com/v1alpha1
+kind: PvWebViewer
+metadata:
+  name: example-pvwebviewer
+spec:
+  # Add fields here
+  size: 3
