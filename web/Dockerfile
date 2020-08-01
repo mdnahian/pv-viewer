@@ -1,7 +1,7 @@
 FROM centos:7
 
-RUN mkdir -p /opt/pvviewer/lib/web
-ADD ./api /opt/pvviewer/lib/web
+RUN mkdir -p /opt/pvviewer/lib/web/api
+ADD ./api /opt/pvviewer/lib/web/api
 
 RUN yum -y update && \
     yum -y install \
