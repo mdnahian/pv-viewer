@@ -1,25 +1,24 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
-api = Blueprint('api', 'api', url_prefix='/api')
+import core
+
+api = Blueprint('api', __name__)
 
 # Persistent Volume
 
-api.route('/pv', methods=['GET'])
+@api.route('/pv', methods=['GET'])
 def get_pv_all():
-    pass
-
-api.route('/pv/<pv_name>', methods=['GET'])
-def get_pv_details(pv_name):
-    pass
+    all_pv = core.get_pv_all()
+    return jsonify({'total': len(all_pv), 'resources': all_pv})
 
 
 # Files
 
-api.route('/files/<pv_name>', methods=['POST'])
+@api.route('/files/<pv_name>', methods=['POST'])
 def get_files_from_pv(pv_name):
     pass
 
-api.route('/files/<pv_name>', methods=['DELETE'])
+@api.route('/files/<pv_name>', methods=['DELETE'])
 def delete_files_from_pv(pv_name):
     pass
 
