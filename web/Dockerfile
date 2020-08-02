@@ -1,7 +1,7 @@
 FROM centos:7
 
-RUN mkdir -p /opt/pvviewer/lib/web/api
-ADD ./api /opt/pvviewer/lib/web/api
+RUN mkdir -p /opt/pvviewer/lib/web/app
+ADD ./app /opt/pvviewer/lib/web/app
 
 RUN yum -y update && \
     yum -y install \
@@ -12,7 +12,7 @@ RUN yum -y update && \
     nginx \
     net-tools \
     less && \
-    pip3 install -r /opt/pvviewer/lib/web/api/requirements.txt
+    pip3 install -r /opt/pvviewer/lib/web/app/requirements.txt
 
 ADD uwsgi.ini /etc/uwsgi/
 ADD nginx.conf /etc/nginx/
